@@ -15,5 +15,5 @@ task 'test', 'Builds everything then executes Jasmine tests via phantomjs',  ->
   invoke 'build:spec'
   invoke 'build:src'
   to_run_specs = 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee '
-  with_spec_runner = 'spec/TestRunner.html'
+  with_spec_runner = 'spec/SpecRunner.html'
   execute_command to_run_specs + with_spec_runner
