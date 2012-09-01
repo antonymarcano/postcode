@@ -1,0 +1,3 @@
+[submodule "vendor/phantom-jasmine"]
+	path = vendor/phantom-jasmine
+	url = git@github.com:antonymarcano/phantom-jasmine.git
