@@ -1,10 +1,10 @@
 {exec} = require 'child_process'
 
-task 'build', 'Build project from coffee/*.coffee to js/*.js', ->
+task 'build', 'Build js from coffee (/*.coffee to js/*.js)', ->
   exec '/usr/local/share/npm/bin/coffee --compile --output js/ coffee/', (err, stdout, stderr) ->
     console.log stdout + stderr
 
-task 'test', 'Execute Jasmine tests via phantomjs',  ->
+task 'test', 'Builds everything then executes Jasmine tests via phantomjs',  ->
   invoke 'build'
   exec 'phantomjs vendor/phantom-jasmine/lib/run_jasmine_test.coffee TestRunner.html', (err, stdout, stderr) ->
     console.log stdout + stderr

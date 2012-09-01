@@ -51,8 +51,11 @@ To run the current example tests:
 
     cake test
 
-This is just some example tests to help make sure the environment is set up and working for both js source and coffeescript.
+If you've used brew to install node, you may see some method deprecation warnings:
 
-I am going to experiment with different environment setups before starting the exercise.
-I'm currently going for a pure javascript environment for now. I may take advantage of some ruby gems at a later date.
+    path.existsSync is now called `fs.existsSync`.
+    path.exists is now called `fs.exists`.
 
+Don't worry about that. It should disappear once the latest of the above are available via homebrew.
+
+The tests that run now are just some example tests to help make sure the environment is set up and working for both js source and coffeescript.
