@@ -50,8 +50,8 @@ Now you're ready
 ----------------
 To run the current example tests:
 
-    cake test
+    cake bake
 
 These tests are just examples so you can look around and understand the structure. Once you have your postcode spec and implementation working, feel free to remove those files.
 
-Go ahead and write your `spec/postcode_spec.coffee` or you can do it in javascript directly if you like.
+Go ahead and write your `spec/coffee/postcode_spec.coffee` or `spec/js/postcode_spec.js` and run `cake bake` to build and run the tests.

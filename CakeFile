@@ -5,15 +5,23 @@ execute_command = (line)->
     console.log stdout + stderr
     throw error if error
 
-task 'build:spec', 'Build spec/js from spec/coffee', ->
-  execute_command 'coffee --compile --output spec/js spec/coffee'
+make_from_coffee = (place) ->
+  from_coffee  = place + '/coffee'
+  to_code      = place + '/js'
+  execute_command 'coffee --compile --output ' + to_code + ' ' + from_coffee
 
-task 'build:src', 'Build src/js from src/coffee', ->
-  execute_command 'coffee --compile --output src/js src/coffee'
+task 'build:spec', 'Build javascript specs from coffee specs', ->
+  make_from_coffee 'spec'
 
-task 'test', 'Builds everything then executes Jasmine tests via phantomjs',  ->
-  invoke 'build:spec'
-  invoke 'build:src'
+task 'build:src', 'Build javascript src from coffee src', ->
+  make_from_coffee 'src'
+
+task 'check:internals', 'Test the implementation against the specs', ->
   to_run_specs = 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee '
   with_spec_runner = 'spec/SpecRunner.html'
   execute_command to_run_specs + with_spec_runner
+
+task 'bake', 'Builds everything then executes Jasmine tests via phantomjs',  ->
+  invoke 'build:spec'
+  invoke 'build:src'
+  invoke 'check:internals'
