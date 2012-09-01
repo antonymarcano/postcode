@@ -1,14 +1,19 @@
 {exec} = require 'child_process'
 
 execute_command = (line)->
-  exec line, (err, stdout, stderr) ->
+  exec line, (error, stdout, stderr) ->
     console.log stdout + stderr
+    throw error if error
 
-task 'build', 'Build spec/js from spec/coffee', ->
+task 'build:spec', 'Build spec/js from spec/coffee', ->
   execute_command 'coffee --compile --output spec/js spec/coffee'
 
+task 'build:src', 'Build src/js from src/coffee', ->
+  execute_command 'coffee --compile --output src/js src/coffee'
+
 task 'test', 'Builds everything then executes Jasmine tests via phantomjs',  ->
-  invoke 'build'
+  invoke 'build:spec'
+  invoke 'build:src'
   to_run_specs = 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee '
   with_spec_runner = 'spec/TestRunner.html'
   execute_command to_run_specs + with_spec_runner
