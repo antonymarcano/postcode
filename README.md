@@ -40,9 +40,10 @@ Used for its build tool, [cake](http://coffeescript.org/documentation/docs/cake.
 
 (Leave off -g if you don't want it installed globally)
 
-You may need to alias cake e.g.:
+If you've not done so already, add the node bin directory to your path. You can find the node bin directory with:
 
-    alias cake='/usr/local/share/npm/bin/cake'
+    node -g bin
+    node bin
 
 Now you're ready
 ----------------
@@ -54,5 +55,4 @@ This is just some example tests to help make sure the environment is set up and 
 
 I am going to experiment with different environment setups before starting the exercise.
 I'm currently going for a pure javascript environment for now. I may take advantage of some ruby gems at a later date.
-
 
