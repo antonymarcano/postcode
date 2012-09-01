@@ -46,8 +46,13 @@ You may need to alias cake e.g.:
 
 Now you're ready
 ----------------
-Run cake.
+To run the current example tests:
 
-At the moment, it doesn't do anything because I'm still setting up the environment.
+    cake test
+
+This is just some example tests to help make sure the environment is set up and working for both js source and coffeescript.
+
+I am going to experiment with different environment setups before starting the exercise.
+I'm currently going for a pure javascript environment for now. I may take advantage of some ruby gems at a later date.
 
 
