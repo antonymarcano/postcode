@@ -52,11 +52,6 @@ To run the current example tests:
 
     cake test
 
-If you've used brew to install node, you may see some method deprecation warnings:
+These tests are just examples so you can look around and understand the structure. Once you have your postcode spec and implementation working, feel free to remove those files.
 
-    path.existsSync is now called `fs.existsSync`.
-    path.exists is now called `fs.exists`.
-
-Don't worry about that. It should disappear once the latest of the above are available via homebrew.
-
-The tests that run now are just some example tests to help make sure the environment is set up and working for both js source and coffeescript.
+Go ahead and write your `spec/postcode_spec.coffee` or you can do it in javascript directly if you like.
