@@ -9,4 +9,6 @@ task 'build', 'Build spec/js from spec/coffee', ->
 
 task 'test', 'Builds everything then executes Jasmine tests via phantomjs',  ->
   invoke 'build'
-  execute_command 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee spec/TestRunner.html'
+  to_run_specs = 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee '
+  with_spec_runner = 'spec/TestRunner.html'
+  execute_command to_run_specs + with_spec_runner
