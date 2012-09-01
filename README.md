@@ -28,6 +28,7 @@ node.js
 This is used primarily to run [cake](http://coffeescript.org/documentation/docs/cake.html) to simplify executing tests and to automate building of coffeescript examples.
 
 Install [node.js](http://nodejs.org/).
+
 If you're on a Mac, [homebrew](http://mxcl.github.com/homebrew/) is your friend:
 
     brew install node
