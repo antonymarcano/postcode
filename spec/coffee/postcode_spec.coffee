@@ -17,9 +17,9 @@ describe 'PostCode', ->
 
   for each_example in valid_postcode_examples
     do (each_example) ->
-      specifies_scenario_with = each_example.scenario
+      should_do = each_example.scenario
 
-      it specifies_scenario_with, ->
+      it should_do, ->
         postcode = new PostCode(each_example.postcode)
         expect(postcode.toString()).toEqual each_example.expectation
 
