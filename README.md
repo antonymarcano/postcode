@@ -52,6 +52,15 @@ To run the current example tests:
 
     cake bake
 
+You should see:
+    Starting...
+    
+    Finished
+    -----------------
+    4 specs, 0 failures in 0.007s.
+    
+    ConsoleReporter finished
+
 These tests are just examples so you can look around and understand the structure. Once you have your postcode spec and implementation working, feel free to remove those files.
 
-Go ahead and write your `spec/coffee/postcode_spec.coffee` or `spec/js/postcode_spec.js` and run `cake bake` to build and run the tests.
+Go ahead and write your `spec/coffee/postcode_spec.coffee` or `spec/js/postcode_spec.js` and run `cake bake` to build and run the tests as you go.
