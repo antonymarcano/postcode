@@ -58,7 +58,7 @@ You should see something like this:
     
     Finished
     -----------------
-    2 specs, 0 failures in 0.007s.
+    3 specs, 0 failures in 0.007s.
     
     ConsoleReporter finished
 
