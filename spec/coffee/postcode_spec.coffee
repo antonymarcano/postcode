@@ -2,18 +2,28 @@ PostCode = @CoffeeExample.PostCode
 
 describe 'PostCode', ->
 
-  it 'accepts a valid postcode', ->
-    enteredPostCode = 'M1 1AA'
-    postcode = new PostCode(enteredPostCode)
-    expect(postcode.toString()).toEqual 'M1 1AA'
+  valid_postcode_examples = [
+    {
+      scenario:   'accepts a valid postcode'
+      postcode:   'M1 1AA'
+      expectation:'M1 1AA'
+    },
+    {
+      scenario:   'treats lowercase as uppercase'
+      postcode:   'm1 1aa'
+      expectation:'M1 1AA'
+    }
+  ]
 
-  it 'treats lowercase as upper case', ->
-    enteredPostCode = 'm1 1aa'
-    postcode = new PostCode(enteredPostCode)
-    expect(postcode.toString()).toEqual 'M1 1AA'
+  for each_example in valid_postcode_examples
+    do (each_example) ->
+      specifies_scenario_with = each_example.scenario
+
+      it specifies_scenario_with, ->
+        postcode = new PostCode(each_example.postcode)
+        expect(postcode.toString()).toEqual each_example.expectation
 
 # Other examples:    
-  # m1 1aa
   # m11aa
   # B33 8TH
   # CR2 6XH
