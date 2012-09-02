@@ -1,19 +1,21 @@
 @CoffeeExample = @CoffeeExample || {}
 
 class @CoffeeExample.PostCode
-  constructor: (rawPostCode) ->
-    firstPartOf = (postCode) ->
-      postCode.slice 0, 2
-    secondPartOf = (postCode) ->
-      postCode.slice 2, 5
+  constructor: (enteredPostCode) ->
     upperCase = (text) -> 
       text.toUpperCase()
     noSpacesIn = (text) ->
       text.replace /\s/g,''
 
-    postCode = noSpacesIn upperCase(rawPostCode)
-    @outcode = secondPartOf postCode
-    @incode = firstPartOf postCode
+    rawPostCode = noSpacesIn upperCase(enteredPostCode)
+    @outcode = PostCode._outCodeFrom rawPostCode
+    @incode = PostCode._inCodeFrom rawPostCode
 
   toString: ->
     "#{@incode} #{@outcode}"
+
+  @_inCodeFrom = (postCode) ->
+      postCode.slice 0, 2
+
+  @_outCodeFrom = (postCode) ->
+      postCode.slice 2, 5
