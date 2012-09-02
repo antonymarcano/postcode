@@ -53,6 +53,7 @@ To run the current example tests:
     cake bake
 
 You should see:
+
     Starting...
     
     Finished
