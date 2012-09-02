@@ -1,6 +1,5 @@
-{exec} = require 'child_process'
-
 execute_command = (line)->
+  {exec} = require 'child_process'
   exec line, (error, stdout, stderr) ->
     console.log stdout + stderr
     throw error if error
@@ -8,6 +7,7 @@ execute_command = (line)->
 make_from_coffee = (place) ->
   from_coffee  = place + '/coffee'
   to_code      = place + '/js'
+  console.log '** Building ' + to_code + ' using source ' + from_coffee + ' ** \n'
   execute_command 'coffee --compile --output ' + to_code + ' ' + from_coffee
 
 task 'build:spec', 'Build javascript specs from coffee specs', ->
