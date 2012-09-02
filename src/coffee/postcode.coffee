@@ -17,7 +17,7 @@ class @CoffeeExample.PostCode
       text.replace /\s/g,''
 
   @_inCodeFrom: (postCode) ->
-      postCode.slice 0, 2
+      postCode.slice 0, postCode.length - 3
 
   @_outCodeFrom: (postCode) ->
-      postCode.slice 2, 5
+      postCode.slice postCode.length - 3, postCode.length

@@ -4,9 +4,14 @@ describe 'PostCode', ->
 
   valid_postcode_examples = [
     {
-      scenario:   'accepts a valid postcode'
+      scenario:   'can have a two character incode'
       postcode:   'M1 1AA'
       expectation:'M1 1AA'
+    }
+    {
+      scenario:   "can have 3 character incodes"
+      postcode:   "B33 8TH"
+      expectation:"B33 8TH"
     }
     {
       scenario:   'treats lowercase as uppercase'
