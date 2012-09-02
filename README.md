@@ -52,14 +52,13 @@ To run the current example tests:
 
     cake bake
 
-You should see:
+You should see something like this:
 
     Starting...
     
     Finished
     -----------------
-    1 specs, 0 failures in 0.007s.
+    2 specs, 0 failures in 0.007s.
     
     ConsoleReporter finished
 
-There is the first example postcode spec written and the simplest implementation code to make it pass in CoffeeScript. 
