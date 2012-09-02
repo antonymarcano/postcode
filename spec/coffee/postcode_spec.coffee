@@ -7,6 +7,11 @@ describe 'PostCode', ->
     postcode = new PostCode(enteredPostCode)
     expect(postcode.toString()).toEqual 'M1 1AA'
 
+  it 'treats lowercase as upper case', ->
+    enteredPostCode = 'm1 1aa'
+    postcode = new PostCode(enteredPostCode)
+    expect(postcode.toString()).toEqual 'M1 1AA'
+
 # Other examples:    
   # m1 1aa
   # m11aa
