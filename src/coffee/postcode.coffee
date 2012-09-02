@@ -2,20 +2,22 @@
 
 class @CoffeeExample.PostCode
   constructor: (enteredPostCode) ->
-    upperCase = (text) -> 
-      text.toUpperCase()
-    noSpacesIn = (text) ->
-      text.replace /\s/g,''
-
-    rawPostCode = noSpacesIn upperCase(enteredPostCode)
+    upperCasePostCode = PostCode._inUpperCaseFrom enteredPostCode
+    rawPostCode = PostCode._withoutSpacesIn upperCasePostCode
     @outcode = PostCode._outCodeFrom rawPostCode
     @incode = PostCode._inCodeFrom rawPostCode
 
   toString: ->
     "#{@incode} #{@outcode}"
 
-  @_inCodeFrom = (postCode) ->
+  @_inUpperCaseFrom: (text) ->
+    text.toUpperCase()
+
+  @_withoutSpacesIn: (text) ->
+      text.replace /\s/g,''
+
+  @_inCodeFrom: (postCode) ->
       postCode.slice 0, 2
 
-  @_outCodeFrom = (postCode) ->
+  @_outCodeFrom: (postCode) ->
       postCode.slice 2, 5
