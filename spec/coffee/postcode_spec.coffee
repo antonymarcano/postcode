@@ -34,7 +34,6 @@ describe 'PostCode', ->
         expect(postcode.toString()).toEqual each_example.expectation
 
 # Other examples:    
-  # B33 8TH
   # CR2 6XH
   # DN55 1PT
   # W1A 1HQ
