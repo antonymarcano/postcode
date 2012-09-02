@@ -7,10 +7,15 @@ describe 'PostCode', ->
       scenario:   'accepts a valid postcode'
       postcode:   'M1 1AA'
       expectation:'M1 1AA'
-    },
+    }
     {
       scenario:   'treats lowercase as uppercase'
       postcode:   'm1 1aa'
+      expectation:'M1 1AA'
+    }
+    {
+      scenario:   "doesn't mind whether there are spaces or not"
+      postcode:   'm11aa'
       expectation:'M1 1AA'
     }
   ]
@@ -24,7 +29,6 @@ describe 'PostCode', ->
         expect(postcode.toString()).toEqual each_example.expectation
 
 # Other examples:    
-  # m11aa
   # B33 8TH
   # CR2 6XH
   # DN55 1PT
