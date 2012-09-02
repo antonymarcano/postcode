@@ -11,10 +11,10 @@ class @CoffeeExample.PostCode
     "#{@incode} #{@outcode}"
 
   @_simplifiedFrom: (postCode) ->
-    upperCase = PostCode._inUpperCase
-    noSpacesIn = PostCode._withoutSpaces
+    inUpperCase = PostCode._inUpperCase
+    noSpaces = PostCode._withoutSpaces
     
-    noSpacesIn(upperCase postCode)
+    noSpaces(inUpperCase postCode)
 
   @_inCodeFrom: (postCode) ->
     fromStart = 0
