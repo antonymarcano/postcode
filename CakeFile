@@ -7,8 +7,8 @@ execute_command = (line)->
 make_from_coffee = (place) ->
   from_coffee  = place + '/coffee'
   to_code      = place + '/js'
-  console.log '** Building ' + to_code + ' using source ' + from_coffee + ' ** \n'
-  execute_command 'coffee --compile --output ' + to_code + ' ' + from_coffee
+  console.log "** Building #{to_code} using source #{from_coffee} ** \n"
+  execute_command "coffee --compile --output #{to_code} #{from_coffee}"
 
 task 'build:spec', 'Build javascript specs from coffee specs', ->
   make_from_coffee 'spec'
