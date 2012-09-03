@@ -2,6 +2,7 @@
 
 class @CoffeeExample.PostCode
   constructor= (postCode) ->
+    throw new Error('Please provide a postcode') if not postCode?
     @incode = firstPartOf simplified postCode
     @outcode = secondPartOf simplified postCode
 

@@ -33,6 +33,9 @@ describe 'PostCode', ->
         postcode = new PostCode(each_example.postcode)
         expect(postcode.toString()).toEqual each_example.expectation
 
+
+  it 'might be undefined', ->
+    expect(-> new PostCode(undefined)).toThrow(new Error('Please provide a postcode'))
 # Other examples:    
   # CR2 6XH
   # DN55 1PT
