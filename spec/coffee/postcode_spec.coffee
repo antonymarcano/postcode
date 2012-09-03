@@ -36,7 +36,8 @@ describe 'PostCode', ->
 
   describe 'invalid postcodes', ->
     it 'might be undefined', ->
-      expect(-> new PostCode(undefined)).toThrow(new Error('Please provide a postcode'))
+      message = 'Please provide a postcode'
+      expect(-> new PostCode(undefined)).toThrow(new Error(message))
       
 # Other examples:    
   # CR2 6XH
