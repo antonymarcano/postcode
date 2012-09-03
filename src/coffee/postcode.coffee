@@ -13,6 +13,7 @@ class @CoffeeExample.PostCode
 
   ensureWeHaveA= (postCode) ->
     throw new Error('Please provide a postcode') if not postCode?
+    throw new Error('Please provide a postcode') if postCode is ''
 
   simplified= (postCode) ->
     noSpaces(inUpperCase postCode)
