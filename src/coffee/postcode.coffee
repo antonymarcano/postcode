@@ -2,7 +2,7 @@
 
 class @CoffeeExample.PostCode
   constructor= (postCode) ->
-    throw new Error('Please provide a postcode') if not postCode?
+    ensureWeHaveA postCode
     @incode = firstPartOf simplified postCode
     @outcode = secondPartOf simplified postCode
 
@@ -10,6 +10,9 @@ class @CoffeeExample.PostCode
 
   toString: ->
     "#{@incode} #{@outcode}"
+
+  ensureWeHaveA= (postCode) ->
+    throw new Error('Please provide a postcode') if not postCode?
 
   simplified= (postCode) ->
     noSpaces(inUpperCase postCode)
