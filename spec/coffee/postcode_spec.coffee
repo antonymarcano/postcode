@@ -42,7 +42,7 @@ describe 'PostCode', ->
         expect(-> new PostCode(undefined)).toThrow(new Error(message))
 
       it 'might be empty', ->
-        expect(-> new PostCode('')).toThrow(new Error(message))
+        expect(-> new PostCode('')).toThrow(new PostCode.NoInputComplaint())
 
       
 # Other examples:    
