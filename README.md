@@ -36,11 +36,8 @@ Once you've installed node, just run:
 
     npm install
 
-Then try:
-
-    npm test
-
-You should see something like this:
+You should see some output showing any dependencies being installed.
+Tests will then be run showing something like this:
     
     Starting...
     
@@ -50,3 +47,4 @@ You should see something like this:
     
     ConsoleReporter finished
 
+Now, just explore the examples.

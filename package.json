@@ -5,5 +5,7 @@
     "coffee-script": "1.3.3"
   },
   "scripts":  
-    { "test":  "cake bake"}
+    { "postinstall":  "cake bake",
+      "test":         "cake bake"
+    }
 }
