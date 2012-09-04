@@ -13,13 +13,13 @@
     "#{@incode} #{@outcode}"
 
   ensureWeHaveA= (postCode) ->
-    causes = [
+    missingInputReasons = [
       -> not postCode?
       -> postCode is ''
     ]
-    for anyCause in causes
-      do (anyCause) ->
-        thereIsNoPostCode() if anyCause() is true
+    for anyReason in missingInputReasons
+      do (anyReason) ->
+        thereIsNoPostCode() if anyReason() is true
 
   thereIsNoPostCode= ->
     throw new NoInputComplaint()
