@@ -12,8 +12,16 @@ class @CoffeeExample.PostCode
     "#{@incode} #{@outcode}"
 
   ensureWeHaveA= (postCode) ->
-    throw new Error('Please provide a postcode') if not postCode?
-    throw new Error('Please provide a postcode') if postCode is ''
+    causes = [
+      -> not postCode?
+      -> postCode is ''
+    ]
+    for anyCause in causes
+      do (anyCause) ->
+        thereIsNoPostCode() if anyCause() is true
+
+  thereIsNoPostCode= ->
+    throw new Error('Please provide a postcode')
 
   simplified= (postCode) ->
     noSpaces(inUpperCase postCode)
