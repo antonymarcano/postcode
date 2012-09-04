@@ -35,13 +35,14 @@ describe 'PostCode', ->
           expect(postcode.toString()).toEqual each_example.expectation
 
   describe 'invalid postcodes', ->
-    message = 'Please provide a postcode'
+    describe 'missing  postcodes', ->
+      message = 'Please provide a postcode'
 
-    it 'might be undefined', ->
-      expect(-> new PostCode(undefined)).toThrow(new Error(message))
+      it 'might be undefined', ->
+        expect(-> new PostCode(undefined)).toThrow(new Error(message))
 
-    it 'might be empty', ->
-      expect(-> new PostCode('')).toThrow(new Error(message))
+      it 'might be empty', ->
+        expect(-> new PostCode('')).toThrow(new Error(message))
 
       
 # Other examples:    
