@@ -1,3 +1,0 @@
-[submodule "spec/lib/phantom-jasmine"]
-	path = spec/lib/phantom-jasmine
-	url = git@github.com:antonymarcano/phantom-jasmine.git
