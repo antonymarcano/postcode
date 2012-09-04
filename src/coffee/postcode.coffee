@@ -1,5 +1,4 @@
 @CoffeeExample = @CoffeeExample || {}
-@CoffeeExample.PostCode = @CoffeeExample.PostCode || {}
 
 @CoffeeExample.PostCode = class PostCode
   constructor= (postCode) ->
@@ -48,5 +47,6 @@
   noSpaces= (inText) ->
     inText.replace /\s/g,''
 
+@CoffeeExample.PostCode = @CoffeeExample.PostCode || {}
 @CoffeeExample.PostCode.NoInputComplaint = class NoInputComplaint extends Error
   constructor: (@message = 'Please provide a postcode') ->
