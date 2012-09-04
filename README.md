@@ -36,7 +36,11 @@ Once you've installed node, just run:
 
     npm install
 
-And everything should just work. You should see something like this:
+Then try:
+
+    npm test
+
+You should see something like this:
     
     Starting...
     
