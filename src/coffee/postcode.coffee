@@ -18,7 +18,6 @@
       -> postCode is ''
     ]
     for anyReason in missingInputReasons
-      do (anyReason) ->
         thereIsNoPostCode() if anyReason() is true
 
   thereIsNoPostCode= ->
