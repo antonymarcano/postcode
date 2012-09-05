@@ -39,7 +39,7 @@ describe 'PostCode', ->
       message = 'Please provide a postcode'
 
       it 'might be undefined', ->
-        expect(-> new PostCode(undefined)).toThrow(new Error(message))
+        expect(-> new PostCode(undefined)).toThrow(new PostCode.NoInputComplaint())
 
       it 'might be empty', ->
         expect(-> new PostCode('')).toThrow(new PostCode.NoInputComplaint())
