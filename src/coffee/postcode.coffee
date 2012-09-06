@@ -3,7 +3,7 @@
 @CoffeeExample.PostCode = class PostCode
   constructor: (postCode) ->
     ensureWeHaveA postCode
-    @incode = firstPartOf(simplified postCode)
+    @incode = new PostCode.InCode(simplified postCode)
     @outcode = new PostCode.OutCode(simplified postCode)
 
   toString: ->
@@ -22,22 +22,6 @@
 
   simplified= (postCode) ->
     noSpaces(inUpperCase postCode)
-
-  firstPartOf= (postCode) ->
-    fromStart = 0
-    toOutCode = outCodePositionIn postCode
-    postCode.slice fromStart, toOutCode
-
-  secondPartOf= (postCode) ->
-    fromStartOfOutCode = outCodePositionIn postCode
-    toEndOfPostCode = endOf postCode
-    postCode.slice fromStartOfOutCode, toEndOfPostCode
-  
-  outCodePositionIn= (postCode) ->
-    (endOf postCode) - 3
-
-  endOf= (postCode) ->
-    postCode.length
 
   inUpperCase= (text) ->
     text.toUpperCase()
