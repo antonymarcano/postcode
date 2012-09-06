@@ -3,11 +3,9 @@
   constructor: (postCode) -> 
     @outcode = secondPartOf postCode
 
-  toString= ->
+  toString: ->
     @outcode
  
-  toString: toString
-
   secondPartOf= (postCode) ->
     fromStartOfOutCode = outCodePositionIn postCode
     toEndOfPostCode = endOf postCode

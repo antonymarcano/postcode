@@ -1,12 +1,10 @@
 @CoffeeExample ?= {}
 
 @CoffeeExample.PostCode = class PostCode
-  constructor= (postCode) ->
+  constructor: (postCode) ->
     ensureWeHaveA postCode
-    @incode = firstPartOf simplified postCode
-    @outcode = new PostCode.OutCode(simplified postCode).toString()
-
-  constructor: constructor
+    @incode = firstPartOf(simplified postCode)
+    @outcode = new PostCode.OutCode(simplified postCode)
 
   toString: ->
     "#{@incode} #{@outcode}"
