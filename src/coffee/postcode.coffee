@@ -4,7 +4,7 @@
   constructor= (postCode) ->
     ensureWeHaveA postCode
     @incode = firstPartOf simplified postCode
-    @outcode = secondPartOf simplified postCode
+    @outcode = new PostCode.OutCode(simplified postCode).toString()
 
   constructor: constructor
 
