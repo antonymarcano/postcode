@@ -1,4 +1,4 @@
-@CoffeeExample = @CoffeeExample || {}
+@CoffeeExample ?= {}
 
 @CoffeeExample.PostCode = class PostCode
   constructor= (postCode) ->
@@ -20,7 +20,7 @@
         thereIsNoPostCode() if anyReason() is true
 
   thereIsNoPostCode= ->
-    throw new NoInputComplaint()
+    throw new PostCode.NoInputComplaint()
 
   simplified= (postCode) ->
     noSpaces(inUpperCase postCode)
@@ -46,7 +46,3 @@
 
   noSpaces= (inText) ->
     inText.replace /\s/g,''
-
-@CoffeeExample.PostCode = @CoffeeExample.PostCode || {}
-@CoffeeExample.PostCode.NoInputComplaint = class NoInputComplaint extends Error
-  constructor: (@message = 'Please provide a postcode') ->
