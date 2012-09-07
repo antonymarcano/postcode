@@ -1,5 +1,7 @@
-OutCode = @CoffeeExample.PostCode.OutCode
-@CoffeeExample.PostCode.InCode = class InCode
+PostCode = @CoffeeExample.PostCode
+OutCode = PostCode.OutCode
+
+PostCode.InCode = class InCode
   constructor: (postCode) ->
     @incode = firstPartOf postCode
 

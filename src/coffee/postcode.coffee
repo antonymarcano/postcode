@@ -2,29 +2,31 @@
 
 @CoffeeExample.PostCode = class PostCode
   constructor: (postCode) ->
-    ensureWeHaveA postCode
-    @incode = new PostCode.InCode(simplified postCode)
-    @outcode = new PostCode.OutCode(simplified postCode)
+    youMustProvideA postCode
+    forOurPostCode = we removeSpacesFrom(theUpperCase postCode)
+    
+    @incode = new PostCode.InCode(forOurPostCode)
+    @outcode = new PostCode.OutCode(forOurPostCode)
 
   toString: ->
     "#{@incode} #{@outcode}"
 
-  ensureWeHaveA= (postCode) ->
-    missingInputReasons = [
-      -> not postCode?
-      -> postCode is ''
+  youMustProvideA= (postCode) ->
+    criteria = [
+      -> postCode?
+      -> postCode isnt ''
     ]
-    for anyReason in missingInputReasons
-        thereIsNoPostCode() if anyReason() is true
+    for anyCriterion in criteria
+        complain() if anyCriterion() isnt true
 
-  thereIsNoPostCode= ->
+  complain= ->
     throw new PostCode.NoInputComplaint()
 
-  simplified= (postCode) ->
-    noSpaces(inUpperCase postCode)
-
-  inUpperCase= (text) ->
+  theUpperCase= (text) ->
     text.toUpperCase()
 
-  noSpaces= (inText) ->
-    inText.replace /\s/g,''
+  removeSpacesFrom= (text) ->
+    text.replace /\s/g,''
+
+  we= (doSomething) ->
+    doSomething
