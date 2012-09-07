@@ -28,5 +28,5 @@
   removeSpacesFrom= (text) ->
     text.replace /\s/g,''
 
-  we= (doSomething) ->
-    doSomething
+  we= (giveThisBackForReadability) ->
+    giveThisBackForReadability
