@@ -9,9 +9,9 @@
     @outcode
 
   secondPartOf= (postCode) ->
-    fromStartOfOutCode = OutCode.positionIn postCode
-    toEndOfPostCode = endOf postCode
-    postCode.slice fromStartOfOutCode, toEndOfPostCode
+    fromHere = OutCode.positionIn postCode
+    toThere = endOf postCode
+    postCode.slice fromHere, toThere
   
   endOf= (postCode) ->
     postCode.length
