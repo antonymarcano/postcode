@@ -1,6 +1,5 @@
 # Generated Files:
-src/js
-spec/js
+js/
 
 # Node dependencies
 node_modules
