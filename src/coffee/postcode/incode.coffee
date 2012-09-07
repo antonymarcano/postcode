@@ -9,6 +9,6 @@ PostCode.InCode = class InCode
     @incode
 
   firstPartOf= (postCode) ->
-    fromStart = 0
-    toOutCode = OutCode.positionIn postCode
-    postCode.slice fromStart, toOutCode
+    fromHere = 0
+    toThere = OutCode.positionIn postCode
+    postCode.slice fromHere, toThere
