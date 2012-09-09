@@ -1,27 +1,29 @@
+task 'bake', 'Builds everything then executes Jasmine tests via phantomjs', ->
+  invoke 'build:spec'
+  invoke 'build:src'
+  invoke 'check:internals'
+
+task 'build:spec', 'Build javascript specs from coffee specs', ->
+  compile_coffee_for 'spec'
+
+task 'build:src', 'Build javascript src from coffee src', ->
+  compile_coffee_for 'src'
+
+task 'check:internals', 'Test the implementation against the specs', ->
+  to_run_specs = 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee'
+  with_spec_runner = 'spec/SpecRunner.html'
+  execute_command "#{to_run_specs} #{with_spec_runner}"
+
+compile_coffee_for = (place) ->
+  to_compile   = 'coffee --compile --output'
+  to_code      = place + '/js'
+  from_coffee  = place + '/coffee'
+
+  console.log "** Building #{to_code} using source #{from_coffee} ** \n"
+  execute_command "#{to_compile} #{to_code} #{from_coffee}"
+
 execute_command = (line)->
   {exec} = require 'child_process'
   exec line, (error, stdout, stderr) ->
     console.log stdout + stderr
     throw error if error
-
-make_from_coffee = (place) ->
-  from_coffee  = place + '/coffee'
-  to_code      = place + '/js'
-  console.log "** Building #{to_code} using source #{from_coffee} ** \n"
-  execute_command "coffee --compile --output #{to_code} #{from_coffee}"
-
-task 'build:spec', 'Build javascript specs from coffee specs', ->
-  make_from_coffee 'spec'
-
-task 'build:src', 'Build javascript src from coffee src', ->
-  make_from_coffee 'src'
-
-task 'check:internals', 'Test the implementation against the specs', ->
-  to_run_specs = 'phantomjs spec/lib/phantom-jasmine/lib/run_jasmine_test.coffee '
-  with_spec_runner = 'spec/SpecRunner.html'
-  execute_command to_run_specs + with_spec_runner
-
-task 'bake', 'Builds everything then executes Jasmine tests via phantomjs',  ->
-  invoke 'build:spec'
-  invoke 'build:src'
-  invoke 'check:internals'
